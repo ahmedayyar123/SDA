@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multiple Stylesheets - No JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    /* Hide all style sections by default */
+    .style-section {
+      display: none;
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    /* Show selected style */
+    #style1:checked ~ .container .style1,
+    #style2:checked ~ .container .style2,
+    #style3:checked ~ .container .style3,
+    #style4:checked ~ .container .style4 {
+      display: flex;
+    }
+
+    /* Radio Buttons hidden but functional */
+    input[type="radio"] {
+      display: none;
+    }
+
+    /* Label as tab */
+    .tabs {
+      background: #333;
+      color: white;
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .tabs label {
+      cursor: pointer;
+      padding: 5px 15px;
+      background-color: #555;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .tabs label:hover {
+      background-color: #777;
+    }
+
+    /* Common layout */
+    .header, .footer, .sidebar, .content {
+      padding: 10px;
+    }
+
+    /* Sidebar on the right */
+    .style-section .content {
+      flex: 3;
+    }
+
+    .style-section .sidebar {
+      flex: 1;
+      align-self: flex-start;
+      background-color: royalblue;
+      color: white;
+      border-radius: 5px;
+    }
+
+    /* Style 1 - See Green */
+    .style1 body-style {
+      background-color: #90ee90;
+      color: black;
+    }
+    .style1 .header, .style1 .footer {
+      background-color: #7ecb7e;
+    }
+
+    /* Style 2 */
+    .style2 body-style {
+      background-color: #f0f0f0;
+      color: white;
+    }
+    .style2 .header, .style2 .footer {
+      background-color: #dcdcdc;
+    }
+
+    /* Style 3 */
+    .style3 body-style {
+      background-color: #f0f0f0;
+      color: white;
+    }
+    .style3 .header, .style3 .footer {
+      background-color: #bbbbbb;
+    }
+
+    /* Style 4 */
+    .style4 body-style {
+      background-color: #f0f0f0;
+      color: white;
+    }
+    .style4 .header, .style4 .footer {
+      background-color: transparent;
+    }
+
+    /* Content container background per style */
+    .style1, .style2, .style3, .style4 {
+      padding: 20px;
+    }
+
+    .style1 { background-color: #90ee90; color: white; }
+    .style2 { background-color: #f0f0f0; color: white; }
+    .style3 { background-color: #f0f0f0; color: white; }
+    .style4 { background-color: #f0f0f0; color: white; }
+  </style>
+</head>
+<body>
+  <!-- Radio Inputs -->
+  <input type="radio" name="style" id="style1" checked>
+  <input type="radio" name="style" id="style2">
+  <input type="radio" name="style" id="style3">
+  <input type="radio" name="style" id="style4">
+
+  <!-- Style Selector Tabs -->
+  <div class="tabs">
+    <label for="style1">Stylesheet 1</label>
+    <label for="style2">Stylesheet 2</label>
+    <label for="style3">Stylesheet 3</label>
+    <label for="style4">Stylesheet 4</label>
+  </div>
+
+  <!-- Page Content Container -->
+  <div class="container">
+
+    <!-- Style 1 -->
+    <div class="style-section style1">
+      <div class="content">
+        <div class="header">
+          <h1>Welcome to My Homepage</h1>
+          <p>This is Stylesheet 1 (See Green)</p>
+        </div>
+        <h2>Same Page Different Stylesheets</h2>
+        <p>This demonstrates different styles using only HTML and CSS without JavaScript.</p>
+        <div class="footer">
+          <p>&copy; 2025 Your Name</p>
+        </div>
+      </div>
+      <div class="sidebar">
+        <p>Sidebar: green-themed layout with royal blue sidebar.</p>
+      </div>
+    </div>
+
+    <!-- Style 2 -->
+    <div class="style-section style2">
+      <div class="content">
+        <div class="header">
+          <h1>Welcome to My Homepage</h1>
+          <p>This is Stylesheet 2 (Light Gray)</p>
+        </div>
+        <h2>Same Page Different Stylesheets</h2>
+        <p>This demonstrates different styles using only HTML and CSS without JavaScript.</p>
+        <div class="footer">
+          <p>&copy; 2025 Your Name</p>
+        </div>
+      </div>
+      <div class="sidebar">
+        <p>Sidebar: light gray layout with royal blue sidebar.</p>
+      </div>
+    </div>
+
+    <!-- Style 3 -->
+    <div class="style-section style3">
+      <div class="content">
+        <div class="header">
+          <h1>Welcome to My Homepage</h1>
+          <p>This is Stylesheet 3 (Light Gray)</p>
+        </div>
+        <h2>Same Page Different Stylesheets</h2>
+        <p>This demonstrates different styles using only HTML and CSS without JavaScript.</p>
+        <div class="footer">
+          <p>&copy; 2025 Your Name</p>
+        </div>
+      </div>
+      <div class="sidebar">
+        <p>Sidebar: alternative light gray layout with royal blue sidebar.</p>
+      </div>
+    </div>
+
+    <!-- Style 4 -->
+    <div class="style-section style4">
+      <div class="content">
+        <div class="header">
+          <h1>Welcome to My Homepage</h1>
+          <p>This is Stylesheet 4 (No Style - Light Gray)</p>
+        </div>
+        <h2>Same Page Different Stylesheets</h2>
+        <p>This demonstrates different styles using only HTML and CSS without JavaScript.</p>
+        <div class="footer">
+          <p>&copy; 2025 Your Name</p>
+        </div>
+      </div>
+      <div class="sidebar">
+        <p>Sidebar: plain layout with royal blue sidebar.</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
